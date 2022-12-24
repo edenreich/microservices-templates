@@ -31,9 +31,10 @@ impl Bitcoin for BitcoinService {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let addr = "[::1]:50051".parse()?;
+    let addr = "0.0.0.0:50051".parse()?;
     let bitcoin = BitcoinService::default();
 
+    println!("Server listening on {}", addr);
     Server::builder()
         .add_service(BitcoinServer::new(bitcoin))
         .serve(addr)
