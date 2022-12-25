@@ -1,6 +1,6 @@
 FROM rust:1.66.0-alpine3.17 AS builder
 WORKDIR /app
-RUN apk add --no-cache --update make gcc musl-dev openssl-dev openssl-libs-static pkgconf protoc
+RUN apk add --no-cache --update musl-dev protoc
 COPY proto proto
 COPY src src
 COPY Cargo.toml Cargo.lock ./
