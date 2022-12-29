@@ -57,8 +57,8 @@ list: docker
 		list
 
 clean-codegen:
-	@printf "=> Cleaning the codegen...\n"
-	@rm -rf protos/gen
+	@printf "=> Cleaning the generated code...\n"
+	@rm -rf codegen
 
 clean: docker clean-codegen
 	@printf "=> Cleaning the service...\n"
