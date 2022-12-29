@@ -17,7 +17,7 @@ docker:
 	@which docker > /dev/null || (printf "Docker is not installed.\n" && exit 1)
 
 codegen: docker clean-codegen
-	@mkdir -p codegen
+	@mkdir codegen
 	@printf "=> Generating the code...\n"
 	@docker build -t protoc:latest --target protoc .
 	@docker run --rm -it -v $(PWD):/app -w /app protoc:latest \

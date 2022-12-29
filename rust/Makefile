@@ -21,7 +21,7 @@ docker:
 
 codegen: docker clean-codegen
 	@printf "=> Generating the code...\n"
-	@mkdir -p codegen
+	@mkdir codegen
 	@docker build -t protoc:latest --target protoc .
 	@docker run --rm -it -v $(PWD):/app -w /app protoc:latest \
 		-I protos payments.proto \
