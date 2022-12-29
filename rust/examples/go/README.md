@@ -1,6 +1,6 @@
 ## gRPC Go Client Example
 
-This example shows how to use gRPC Rust client to send requests to the server.
+This example shows how to use gRPC Go client to send requests to the server.
 
 ### Generate gRPC Go code
 
