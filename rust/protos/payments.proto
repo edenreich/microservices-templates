@@ -2,9 +2,7 @@ syntax = "proto3";
 
 package payments;
 
-service Bitcoin {
-  rpc SendPayment(BtcPaymentRequest) returns (BtcPaymentResponse);
-}
+option go_package = "github.com/edenreich/payments";
 
 message BtcPaymentRequest {
   string from_address = 1;
@@ -15,4 +13,8 @@ message BtcPaymentRequest {
 message BtcPaymentResponse {
   bool successful = 1;
   string message = 2;
+}
+
+service Bitcoin {
+  rpc SendPayment(BtcPaymentRequest) returns (BtcPaymentResponse);
 }
