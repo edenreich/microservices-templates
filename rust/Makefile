@@ -17,7 +17,7 @@ help:
 default: help
 
 docker:
-	@which docker > /dev/null || (printf "Docker is not installed.\n" && exit 1)
+	@which docker > /dev/null || (printf "docker is not installed.\n" && exit 1)
 
 codegen: docker clean-codegen
 	@printf "=> Generating the code...\n"
