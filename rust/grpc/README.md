@@ -1,4 +1,4 @@
-## gRPC service
+## Rust gRPC service
 
 This is a simple example of a gRPC service.
 
