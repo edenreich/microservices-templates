@@ -1,4 +1,5 @@
 IMAGE_NAME ?= "rest-service"
+CONTAINER_NAME ?= "rest-service"
 IMAGE_TAG ?= "latest" 
 
 help:
@@ -22,7 +23,7 @@ build: docker
 
 run: docker
 	@printf "=> Running the service...\n"
-	@docker run --user 1000:1000 --rm -it -p 8080:8080 --name rest-service $(IMAGE_NAME):$(IMAGE_TAG) 
+	@docker run --user 1000:1000 --rm -it -p 8080:8080 --name $(CONTAINER_NAME) $(IMAGE_NAME):$(IMAGE_TAG) 
 
 test: docker
 	@printf "=> Running the tests...\n"
@@ -30,9 +31,10 @@ test: docker
 
 clean: docker
 	@printf "=> Cleaning the service...\n"
-	@docker rm -f rest-service || true
-	@docker rmi $(IMAGE_NAME)-base:$(IMAGE_TAG) || true
+	@docker rm -f $(CONTAINER_NAME) || true
 	@docker rmi $(IMAGE_NAME):$(IMAGE_TAG) || true
+	@docker rmi rust:1.66.0-alpine3.17 || true
 	@rm -rf target
+	@docker system prune -f
 
 .PHONY: help default docker build run test clean
